@@ -248,7 +248,7 @@ public class GuiJTableBuscaPaciente extends javax.swing.JInternalFrame {
 
 
     private void jbLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparActionPerformed
-        limparTabela();
+        jtFiltro.setText("");
     }//GEN-LAST:event_jbLimparActionPerformed
 
     private void jtFiltroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtFiltroKeyReleased
