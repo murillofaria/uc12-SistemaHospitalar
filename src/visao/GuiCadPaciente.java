@@ -4,6 +4,8 @@ import dao.ConvenioDAO;
 import dao.PacienteDAO;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 import modelo.Convenio;
@@ -12,6 +14,9 @@ import servicos.ConvenioServicos;
 import servicos.ServicosFactory;
 
 public class GuiCadPaciente extends javax.swing.JInternalFrame {
+
+    private static final String EMAIL_PATTERN
+            = "^[A-Za-z0-9+_.-]+@(.+)$";
 
     /**
      * Creates new form GuiCadPaciente
@@ -174,6 +179,12 @@ public class GuiCadPaciente extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public static boolean isValidEmail(String email) {
+        Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
     private void cadastrar() {
         try {
 
@@ -181,8 +192,8 @@ public class GuiCadPaciente extends javax.swing.JInternalFrame {
 
             Paciente pac = new Paciente();
             if (!jtNome.getText().equals("") && !jftfCpf.getText().equals("   .   .   .  ") && !jftfDataNasc.getText().equals("  /  /    ")
-                    && !jtEndereco.getText().equals("") && !jftfTelefone.getText().equals("(  )          ") && 
-                    !jcConvenio.getSelectedItem().equals("-Selecione-")){
+                    && !jtEndereco.getText().equals("") && !jftfTelefone.getText().equals("(  )          ")
+                    && !jcConvenio.getSelectedItem().equals("-Selecione-") && isValidEmail(jtEmail1.getText()) != false) {
                 // Atribuindo valores aos atributos do Paciente com base nos campos preenchidos pelo usuário na tela
                 pac.setNome(jtNome.getText());
                 pac.setEndereco(jtEndereco.getText());
