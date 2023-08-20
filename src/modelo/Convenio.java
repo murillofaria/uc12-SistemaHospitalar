@@ -15,10 +15,9 @@ public class Convenio {
     private String tempoCarencia;
     private String cnpj;
 
-
     public Convenio() {
     }
-    
+
     public Convenio(int idConvenio, String nomeConvenio, String tempoCarencia, String cnpj) {
         this.idConvenio = idConvenio;
         this.nomeConvenio = nomeConvenio;

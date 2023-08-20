@@ -9,7 +9,6 @@ package dao;
 // Ao invés de criar múltiplas instâncias de DAOs, o uso de instâncias singleton melhora a performance da aplicação,
 // uma vez que evita a criação desnecessária de múltiplas conexões ao banco de dados e permite que as operações de acesso
 // ao banco de dados possam ser facilmente substituídas por outros tipos de operações de acesso, se necessário.
-
 public class DAOFactory {
 
     /* Instancia um obj.  
@@ -18,13 +17,13 @@ public class DAOFactory {
     private static final ConvenioDAO convenioDAO = new ConvenioDAO();
 
     // O método getPacienteDAO() retorna um objeto PacienteDAO que pode ser usado para realizar operações de acesso ao banco
-   // de dados para a tabela Paciente.
+    // de dados para a tabela Paciente.
     public static PacienteDAO getPacienteDAO() {
         return pacienteDAO;
     }
 
     // O método getConvenioDAO() retorna um objeto ConvenioDAO que pode ser usado para realizar operações de acesso ao banco
-   // de dados para a tabela Convenio.
+    // de dados para a tabela Convenio.
     public static ConvenioDAO getConvenioDAO() {
         return convenioDAO;
     }
